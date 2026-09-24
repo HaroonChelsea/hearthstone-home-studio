@@ -1,0 +1,38 @@
+---
+import { Picture } from "astro:assets";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { team } from "@/data/site";
+---
+
+<section id="about" aria-labelledby="about-title" class="py-24 md:py-32">
+  <div class="container-site">
+    <div class="grid items-end gap-8 lg:grid-cols-2">
+      <SectionHeading id="about-title" kicker="About Hearthstone" title="Crafting Beautiful Homes With Passion" />
+      <p data-reveal class="max-w-[34rem] text-muted-foreground lg:justify-self-end">
+        We started as a small team of carpenters and designers who believed a renovation should feel calm, not chaotic.
+        Today every Hearthstone project still has one designer and one project manager from first sketch to final walkthrough.
+      </p>
+    </div>
+
+    <ul data-reveal="stagger" class="mt-16 grid gap-6 sm:grid-cols-3">
+      {team.map(({ name, role, image, alt }) => (
+        <li>
+          <figure>
+            <Picture
+              src={image}
+              alt={alt}
+              widths={[360, 540, 720]}
+              sizes="(min-width: 640px) 33vw, 100vw"
+              formats={["avif", "webp"]}
+              class="aspect-[4/5] w-full object-cover"
+            />
+            <figcaption class="border-b-4 border-primary bg-card px-6 py-5">
+              <p class="font-display text-lg text-secondary">{name}</p>
+              <p class="text-sm text-muted-foreground">{role}</p>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

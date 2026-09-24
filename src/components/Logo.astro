@@ -1,0 +1,18 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  class?: string;
+}
+---
+
+<a href="#top" class={cn("flex items-center gap-3", Astro.props.class)} aria-label="Hearthstone Home Studio, back to top">
+  <svg viewBox="0 0 40 40" class="size-10 shrink-0" aria-hidden="true">
+    <path d="M4 18 20 5l16 13v18H4Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="miter" />
+    <path d="M13 36V26a7 7 0 0 1 14 0v10Z" class="fill-primary" />
+  </svg>
+  <span class="flex flex-col leading-none">
+    <span class="font-display text-lg tracking-tight">Hearthstone</span>
+    <span class="mt-1 text-[0.6875rem] tracking-[0.2em] opacity-75">Home Studio</span>
+  </span>
+</a>

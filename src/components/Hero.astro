@@ -1,0 +1,40 @@
+---
+import { Picture } from "astro:assets";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import hero from "@/assets/images/hero.jpg";
+
+const cta = "h-14 px-9";
+---
+
+<section id="top" class="dark relative isolate flex min-h-[max(100svh,46rem)] items-center overflow-hidden bg-background text-foreground">
+  <Picture
+    src={hero}
+    alt=""
+    widths={[640, 960, 1280, 1920, 2400]}
+    sizes="100vw"
+    formats={["avif", "webp"]}
+    loading="eager"
+    fetchpriority="high"
+    class="hero-photo absolute inset-0 -z-20 size-full object-cover"
+  />
+  <div
+    class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(22_34_56/0.94)_0%,rgb(22_34_56/0.78)_45%,rgb(22_34_56/0.35)_100%)]"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-site pt-44 pb-40 md:pb-48">
+    <p class="hero-step font-heading text-xl font-light text-primary md:text-[1.75rem]" style="--step:0">Canadian Home Renovation Experts</p>
+    <h1 class="hero-step font-display mt-5 text-[clamp(2.5rem,1.2rem+4.8vw,5rem)] leading-[1.1]" style="--step:1">
+      Transform Your Home <br class="hidden md:block" />Into A Space You Love
+    </h1>
+    <p class="hero-step mt-7 max-w-[36rem] text-lg text-muted-foreground" style="--step:2">
+      Hearthstone Home Studio specializes in kitchen renovations, bathroom remodeling, and complete home
+      transformations. We bring thoughtful design and quality craftsmanship to every project.
+    </p>
+    <div class="hero-step mt-10 flex flex-wrap gap-4" style="--step:3">
+      <a href="#projects" class={cn(buttonVariants({ size: "lg" }), cta)}>View our projects</a>
+      <a href="#contact" class={cn(buttonVariants({ variant: "outline", size: "lg" }), cta, "border-white/60")}>Get a free quote</a>
+    </div>
+  </div>
+</section>

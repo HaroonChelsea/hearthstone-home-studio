@@ -1,0 +1,32 @@
+---
+import { ArrowRightIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  id: string;
+  title: string;
+  kicker?: string;
+  intro?: string;
+  action?: { label: string; href: string };
+  class?: string;
+}
+
+const { id, title, kicker, intro, action, class: className } = Astro.props;
+---
+
+<div data-reveal class={cn("flex flex-wrap items-end justify-between gap-x-10 gap-y-6", className)}>
+  <div class="max-w-[40rem]">
+    {kicker && <p class="font-heading text-[clamp(1.25rem,1rem+0.8vw,1.75rem)] font-light text-muted-foreground">{kicker}</p>}
+    <h2 id={id} class="font-display mt-3 text-[clamp(1.875rem,1.4rem+1.6vw,2.75rem)] leading-[1.2] text-secondary">
+      {title}
+    </h2>
+    {intro && <p class="mt-5 text-muted-foreground">{intro}</p>}
+  </div>
+  <slot name="action" />
+  {action && (
+    <a href={action.href} class="group inline-flex items-center gap-2 pb-2 text-sm font-semibold tracking-widest text-secondary uppercase hover:text-primary">
+      {action.label}
+      <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+    </a>
+  )}
+</div>

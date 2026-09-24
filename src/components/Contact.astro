@@ -1,0 +1,49 @@
+---
+import { PlusIcon } from "lucide-react";
+import { QuoteForm } from "@/components/QuoteForm";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { faqs, site } from "@/data/site";
+---
+
+<section id="contact" aria-labelledby="quote-title" class="bg-card py-24 md:py-32">
+  <div class="container-site grid gap-12 lg:grid-cols-2 lg:gap-16">
+    <div data-reveal="left" class="dark bg-background p-8 text-foreground md:p-12">
+      <h2 id="quote-title" class="font-display text-[clamp(1.875rem,1.3rem+1.9vw,2.75rem)] leading-[1.12]">Request A Quote</h2>
+      <p class="mt-4 mb-10 text-muted-foreground">Tell us about your project. A designer will reply within one business day.</p>
+      <QuoteForm email={site.email} />
+    </div>
+
+    <div class="lg:pt-12">
+      <SectionHeading id="faq-title" kicker="Before you call" title="Frequently Asked Questions" />
+      <div data-reveal class="mt-10 border-t">
+        {faqs.map(({ question, answer }, i) => (
+          <details class="faq group border-b" name="faq" open={i === 0}>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-semibold text-secondary [&::-webkit-details-marker]:hidden">
+              {question}
+              <span class="grid size-9 shrink-0 place-items-center bg-primary text-primary-foreground">
+                <PlusIcon className="size-4 transition-transform duration-300 group-open:rotate-45" aria-hidden="true" />
+              </span>
+            </summary>
+            <p class="max-w-[36rem] pb-6 text-muted-foreground">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .faq {
+      interpolate-size: allow-keywords;
+    }
+    .faq::details-content {
+      block-size: 0;
+      overflow: clip;
+      transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
+    }
+    .faq[open]::details-content {
+      block-size: auto;
+    }
+  }
+</style>

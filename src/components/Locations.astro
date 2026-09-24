@@ -1,0 +1,50 @@
+---
+import { Picture } from "astro:assets";
+import { MapPinIcon } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { cities } from "@/data/site";
+
+const mapUrl = (city: string, province: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${city}, ${province}`)}`;
+---
+
+<section aria-labelledby="areas-title" class="bg-card py-24 md:py-32">
+  <div class="container-site">
+    <SectionHeading
+      id="areas-title"
+      kicker="Where we work"
+      title="Renovating Homes Across Canada"
+      intro="Local crews and project managers in four regions, backed by one design studio."
+    />
+
+    <ul data-reveal="stagger" class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {cities.map(({ name, province, address, image, alt }) => (
+        <li class="flex flex-col border bg-background">
+          <Picture
+            src={image}
+            alt={alt}
+            widths={[320, 480, 640]}
+            sizes="(min-width: 1024px) 17rem, (min-width: 640px) 50vw, 100vw"
+            formats={["avif", "webp"]}
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <div class="flex flex-1 flex-col gap-2 p-6">
+            <h3 class="font-display text-xl text-secondary">{name}</h3>
+            <p class="flex gap-2 text-sm text-muted-foreground">
+              <MapPinIcon className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+              {address}
+            </p>
+            <a
+              href={mapUrl(name, province)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto pt-4 text-sm font-semibold text-secondary underline decoration-primary decoration-2 underline-offset-[6px] hover:decoration-secondary"
+            >
+              View Service Area →<span class="sr-only"> for {name} (opens Google Maps)</span>
+            </a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

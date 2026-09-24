@@ -1,0 +1,50 @@
+---
+import Logo from "@/components/Logo.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+import { nav, services, site } from "@/data/site";
+
+const year = new Date().getFullYear();
+const linkClass = "text-muted-foreground transition-colors hover:text-primary";
+---
+
+<footer class="dark bg-background text-foreground">
+  <div data-reveal="stagger" class="container-site grid gap-12 py-20 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+    <div>
+      <Logo />
+      <p class="mt-6 max-w-[20rem] text-muted-foreground">
+        Premium kitchen, bathroom, basement, and whole-home renovations for Canadian homeowners.
+      </p>
+    </div>
+
+    <nav aria-labelledby="footer-services">
+      <h2 id="footer-services" class="font-display text-base">Services</h2>
+      <ul class="mt-6 flex flex-col gap-3">
+        {services.map(({ title }) => <li><a href="#services" class={linkClass}>{title}</a></li>)}
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-company">
+      <h2 id="footer-company" class="font-display text-base">Company</h2>
+      <ul class="mt-6 flex flex-col gap-3">
+        {nav.slice(1).map(({ label, href }) => <li><a href={href} class={linkClass}>{label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="font-display text-base">Contact</h2>
+      <address class="mt-6 flex flex-col gap-3 text-muted-foreground not-italic">
+        <a href={site.phone.href} class={linkClass}>{site.phone.display}</a>
+        <a href={`mailto:${site.email}`} class={`${linkClass} break-all`}>{site.email}</a>
+        <span>{site.address}</span>
+        <span>{site.hours}</span>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t">
+    <div class="container-site flex flex-col items-center justify-between gap-4 py-6 text-sm text-muted-foreground sm:flex-row">
+      <p>© {year} {site.name}</p>
+      <SocialLinks class="-me-2" />
+    </div>
+  </div>
+</footer>

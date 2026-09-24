@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "photographer": "Max Vakhtbovych",
+    "url": "https://www.pexels.com/photo/modern-spacious-kitchen-with-light-furniture-6587896/",
+    "alt": "Interior of contemporary spacious kitchen with light expensive furniture placed in apartment with minimalistic design"
+  },
+  "service-kitchen": {
+    "photographer": "Lee Salem",
+    "url": "https://www.pexels.com/photo/modern-white-kitchen-with-wooden-floor-36511379/",
+    "alt": "Bright modern kitchen with white cabinets, wooden floor, and appliances."
+  },
+  "service-bathroom": {
+    "photographer": "Max Vakhtbovych",
+    "url": "https://www.pexels.com/photo/white-bathtub-and-sink-in-spacious-bathtub-at-home-6957081/",
+    "alt": "Interior of contemporary bathroom with round ceramic bathtub and sink and wooden cabinet in daytime"
+  },
+  "service-basement": {
+    "photographer": "Peter  Vang",
+    "url": "https://www.pexels.com/photo/spacious-empty-basement-room-with-carpet-flooring-35493895/",
+    "alt": "Open basement room with neutral gray walls and plush carpeting, ideal for remodeling."
+  },
+  "service-interior": {
+    "photographer": "Beyza Kılıçdere",
+    "url": "https://www.pexels.com/photo/bright-modern-living-room-with-soft-white-interiors-29012619/",
+    "alt": "A minimalist living room with soft white sofas and large curtains, creating a cozy atmosphere."
+  },
+  "service-carpentry": {
+    "photographer": "Ono  Kosuki",
+    "url": "https://www.pexels.com/photo/focused-ethnic-male-carpenter-hammering-nail-into-wooden-detail-in-workshop-5974413/",
+    "alt": "Concentrated young ethnic craftsman in eyeglasses hammering nail into wooden plank during work in carpentry studio"
+  },
+  "service-full-home": {
+    "photographer": "Monica Silvestre",
+    "url": "https://www.pexels.com/photo/renovations-in-a-house-4756489/",
+    "alt": "Interior view of a home under renovation with exposed wooden beams and door."
+  },
+  "featured": {
+    "photographer": "Stephen Tilmon",
+    "url": "https://www.pexels.com/photo/interior-of-a-modern-apartment-17087547/",
+    "alt": "Bright and airy modern living room with a focus on minimalist style and comfort."
+  },
+  "city-toronto": {
+    "photographer": "Isnar Silva",
+    "url": "https://www.pexels.com/photo/cityscape-of-toronto-16669433/",
+    "alt": "Scenic view of Toronto city skyline featuring the CN Tower and waterfront under a clear blue sky."
+  },
+  "city-vancouver": {
+    "photographer": "Luke Lawreszuk",
+    "url": "https://www.pexels.com/photo/vancouver-skyline-with-mountains-and-marina-29072584/",
+    "alt": "Stunning view of Vancouver's skyline with mountains and marina in the background."
+  },
+  "city-calgary": {
+    "photographer": "Donovan Kelly",
+    "url": "https://www.pexels.com/photo/city-buildings-under-the-blue-sky-9623137/",
+    "alt": "A vibrant view of Calgary's skyline with modern skyscrapers framed by greenery under a clear sky."
+  },
+  "city-ottawa": {
+    "photographer": "Splash of Rain",
+    "url": "https://www.pexels.com/photo/building-architecture-historical-tower-7328/",
+    "alt": "Stunning photo of Canada's Parliament Hill in Ottawa under a clear sky, showcasing Gothic Revival architecture."
+  },
+  "team-founder": {
+    "photographer": "RDNE Stock project",
+    "url": "https://www.pexels.com/photo/a-man-in-black-suit-jacket-looking-at-the-camera-8068725/",
+    "alt": "Elderly businessman in a suit holding documents in a modern kitchen setting."
+  },
+  "team-designer": {
+    "photographer": "Helena Lopes",
+    "url": "https://www.pexels.com/photo/a-woman-in-a-business-suit-smiling-27086922/",
+    "alt": "Smiling woman in a formal suit poses confidently indoors with ambient lighting."
+  },
+  "team-manager": {
+    "photographer": "Murat IŞIK",
+    "url": "https://www.pexels.com/photo/construction-worker-in-safety-gear-outdoors-34670926/",
+    "alt": "Smiling construction worker wearing safety vest and helmet on a construction site."
+  },
+  "work-kitchen": {
+    "photographer": "Bilguun Gantumur",
+    "url": "https://www.pexels.com/photo/modern-minimalist-kitchen-with-marble-accents-38311097/",
+    "alt": "Sleek kitchen design featuring white marble countertops and modern fixtures."
+  },
+  "work-bathroom": {
+    "photographer": "Vinícius Vieira ft",
+    "url": "https://www.pexels.com/photo/elegant-modern-bathtub-in-spa-setting-30615188/",
+    "alt": "A stylish white bathtub in a contemporary spa-like bathroom with wooden decor."
+  },
+  "work-basement": {
+    "photographer": "Erik Mclean",
+    "url": "https://www.pexels.com/photo/pin-ball-table-in-room-9899847/",
+    "alt": "A warm and inviting basement game room featuring a pool table, couch, and wooden decor."
+  },
+  "work-living": {
+    "photographer": "Alex Qian",
+    "url": "https://www.pexels.com/photo/living-room-interior-2343469/",
+    "alt": "Cozy and stylish living room interior featuring a fireplace and modern decor."
+  }
+}

@@ -1,0 +1,79 @@
+---
+import { MenuIcon, PhoneIcon, XIcon } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import Logo from "@/components/Logo.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+import { nav, site } from "@/data/site";
+---
+
+<header class="absolute inset-x-0 top-0 z-20 text-white">
+  <div class="border-b border-white/15">
+    <div class="container-site flex h-11 items-center justify-between text-sm">
+      <p class="flex items-center gap-2">
+        <PhoneIcon className="size-3.5 text-primary" aria-hidden="true" />
+        <span class="hidden opacity-75 sm:inline">Make a call:</span>
+        <a href={site.phone.href} class="font-medium hover:text-primary">{site.phone.display}</a>
+      </p>
+      <SocialLinks class="-me-2" />
+    </div>
+  </div>
+
+  <div class="container-site flex h-24 items-center justify-between gap-6">
+    <Logo />
+
+    <nav aria-label="Main" class="hidden lg:block">
+      <ul class="flex items-center gap-9 text-[0.9375rem] font-medium">
+        {nav.map(({ label, href }, i) => (
+          <li><a href={href} class={cn("py-2 transition-colors hover:text-primary", i === 0 && "text-primary")}>{label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#contact" class={cn(buttonVariants({ size: "lg" }), "hidden h-12 px-8 sm:inline-flex")}>Request a quote</a>
+      <button
+        type="button"
+        popovertarget="mobile-nav"
+        class="grid size-11 place-items-center lg:hidden"
+        aria-label="Open menu"
+      >
+        <MenuIcon className="size-6" aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-nav"
+    popover
+    class="dark inset-0 m-0 h-dvh max-h-none w-full max-w-none flex-col border-0 bg-background p-0 text-foreground [&:popover-open]:flex"
+  >
+    <div class="container-site flex h-24 shrink-0 items-center justify-between">
+      <Logo />
+      <button
+        type="button"
+        popovertarget="mobile-nav"
+        popovertargetaction="hide"
+        class="grid size-11 place-items-center"
+        aria-label="Close menu"
+      >
+        <XIcon className="size-6" aria-hidden="true" />
+      </button>
+    </div>
+    <nav aria-label="Mobile" class="container-site flex flex-1 flex-col justify-between pb-10">
+      <ul class="flex flex-col border-t">
+        {nav.map(({ label, href }) => (
+          <li class="border-b"><a href={href} class="font-display block py-5 text-2xl">{label}</a></li>
+        ))}
+      </ul>
+      <a href="#contact" class={cn(buttonVariants({ size: "lg" }), "h-14 w-full")}>Request a quote</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menu = document.getElementById("mobile-nav");
+  menu?.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).closest("a")) menu.hidePopover();
+  });
+</script>

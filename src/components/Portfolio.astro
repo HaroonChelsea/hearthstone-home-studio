@@ -1,0 +1,35 @@
+---
+import { Picture } from "astro:assets";
+import { buttonVariants } from "@/components/ui/button";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { cn } from "@/lib/utils";
+import { works } from "@/data/site";
+---
+
+<section id="projects" aria-labelledby="projects-title" class="bg-card pt-24 md:pt-28">
+  <div class="container-site">
+    <SectionHeading id="projects-title" kicker="Recent Projects" title="Our Latest Work">
+      <a slot="action" href="#contact" class={cn(buttonVariants({ size: "lg" }), "h-12 px-8")}>Start your project</a>
+    </SectionHeading>
+  </div>
+
+  <ul data-reveal="stagger" class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    {works.map(({ title, location, image, alt }) => (
+      <li class="group relative isolate overflow-hidden">
+        <Picture
+          src={image}
+          alt={alt}
+          widths={[480, 720, 960]}
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          formats={["avif", "webp"]}
+          class="aspect-[20/19] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-[rgb(22_34_56/0.9)] via-[rgb(22_34_56/0.35)] via-45% to-transparent to-65%" aria-hidden="true"></div>
+        <div class="absolute inset-x-0 bottom-0 p-8 text-white lg:p-10">
+          <h3 class="font-display text-2xl leading-tight">{title}</h3>
+          <p class="mt-1 opacity-90">{location}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>

@@ -1,0 +1,33 @@
+---
+import { QuoteIcon } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { testimonials } from "@/data/site";
+
+const initials = (name: string) => name.split(" ").map((part) => part[0]).join("");
+---
+
+<section aria-labelledby="testimonials-title" class="py-24 md:py-32">
+  <div class="container-site">
+    <SectionHeading id="testimonials-title" kicker="What our clients say" title="Testimonials" />
+
+    <ul data-reveal="stagger" class="mt-16 grid gap-6 md:grid-cols-2">
+      {testimonials.map(({ name, role, quote }) => (
+        <li class="dark flex flex-col bg-background p-8 text-foreground md:p-10">
+          <QuoteIcon className="size-8 text-primary" aria-hidden="true" />
+          <figure class="mt-6 flex flex-1 flex-col">
+            <blockquote class="flex-1 text-lg leading-relaxed">“{quote}”</blockquote>
+            <figcaption class="mt-8 flex items-center gap-4 border-t pt-6">
+              <span class="grid size-12 shrink-0 place-items-center bg-primary font-semibold text-primary-foreground" aria-hidden="true">
+                {initials(name)}
+              </span>
+              <span>
+                <span class="font-display block">{name}</span>
+                <span class="block text-sm text-muted-foreground">{role}</span>
+              </span>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,23 +1,79 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "@/styles/global.css";
+import { getImage } from "astro:assets";
+import headingFont from "@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url";
+import bodyFont from "@fontsource-variable/open-sans/files/open-sans-latin-wght-normal.woff2?url";
+import hero from "@/assets/images/hero.jpg";
+import { site } from "@/data/site";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} | Luxury Home Renovations in Canada`,
+  description = site.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+const og = await getImage({ src: hero, width: 1200, height: 630, fit: "cover", format: "jpg" });
+const ogUrl = new URL(og.src, Astro.site ?? site.url).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: site.name,
+  url: site.url,
+  image: ogUrl,
+  description: site.description,
+  email: site.email,
+  areaServed: ["Toronto", "Vancouver", "Calgary", "Ottawa"].map((name) => ({ "@type": "City", name })),
+  sameAs: Object.values(site.social),
+};
+---
+
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href={headingFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#162238" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A renovated kitchen with a navy island, white panelled cabinetry, and marble floors" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("reveal");
+        setTimeout(() => { if (!window.__revealReady) document.documentElement.classList.remove("reveal"); }, 3000);
+      }
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="sr-only z-50 bg-primary px-4 py-3 text-primary-foreground focus:not-sr-only focus:fixed focus:top-2 focus:left-2">
+      Skip to content
+    </a>
+    <slot />
+    <script>
+      if (document.documentElement.classList.contains("reveal")) import("@/scripts/reveal");
+    </script>
+  </body>
+</html>
