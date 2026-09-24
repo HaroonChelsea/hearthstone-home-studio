@@ -20,7 +20,7 @@ import workLiving from "@/assets/images/work-living.jpg";
 
 export const site = {
   name: "Hearthstone Home Studio",
-  url: "https://hearthstonehomestudio.ca",
+  url: "https://hearthstone.mharoon.dev",
   description:
     "Hearthstone Home Studio designs and builds premium kitchen, bathroom, basement, and whole-home renovations for homeowners across Canada.",
   phone: { display: "+1 (XXX) XXX-XXXX", href: "tel:+10000000000" },

@@ -8,7 +8,11 @@ const from: Record<string, string> = {
 };
 const rise = "translateY(32px)";
 
-for (const el of document.querySelectorAll<HTMLElement>("[data-reveal]")) {
+const targets = document.documentElement.classList.contains("reveal")
+  ? document.querySelectorAll<HTMLElement>("[data-reveal]")
+  : [];
+
+for (const el of targets) {
   const mode = el.dataset.reveal ?? "";
   inView(
     el,

@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea"
 
 export function QuoteForm({ email }: { email: string }) {
   return (
-    <form action={`mailto:${email}`} method="post" encType="text/plain">
+    <form id="quote-form" data-email={email}>
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="quote-name">Name</FieldLabel>

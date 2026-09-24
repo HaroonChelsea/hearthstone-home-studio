@@ -47,3 +47,14 @@ import { faqs, site } from "@/data/site";
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById("quote-form") as HTMLFormElement | null;
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const lines = [...new FormData(form)].map(([field, value]) => `${field}: ${value}`);
+    const subject = encodeURIComponent("Quote request");
+    const body = encodeURIComponent(lines.join("\n"));
+    window.location.href = `mailto:${form.dataset.email}?subject=${subject}&body=${body}`;
+  });
+</script>

@@ -17,7 +17,7 @@ const photo = "absolute inset-0 -z-20 size-full object-cover";
 
 <section aria-labelledby="featured-title" class="grid lg:grid-cols-2">
   <div class="dark relative isolate flex items-center overflow-hidden px-5 py-24 text-foreground md:px-12 lg:py-32 lg:ps-[max(2rem,calc((100vw-75rem)/2+2rem))] lg:pe-16">
-    <Picture src={featured} alt="" widths={[640, 960, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" formats={["avif", "webp"]} class={photo} />
+    <Picture src={featured} alt="" widths={[480, 640, 720, 960, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" formats={["avif", "webp"]} class={photo} />
     <div class="absolute inset-0 -z-10 bg-[rgb(22_34_56/0.88)]" aria-hidden="true"></div>
     <div data-reveal="left" class="max-w-[30rem]">
       <p class="font-heading text-[clamp(1.25rem,1rem+0.8vw,1.75rem)] font-light text-primary">Featured Project</p>
@@ -32,7 +32,7 @@ const photo = "absolute inset-0 -z-20 size-full object-cover";
   </div>
 
   <div class="relative isolate flex items-center overflow-hidden px-5 py-24 text-primary-foreground md:px-12 lg:py-32 lg:ps-16 lg:pe-[max(2rem,calc((100vw-75rem)/2+2rem))]">
-    <Picture src={craft} alt="" widths={[640, 960, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" formats={["avif", "webp"]} class={photo} />
+    <Picture src={craft} alt="" widths={[480, 640, 720, 960, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" formats={["avif", "webp"]} class={photo} />
     <div class="absolute inset-0 -z-10 bg-primary/92" aria-hidden="true"></div>
     <div data-reveal="right" class="max-w-[30rem]">
       <h3 class="font-display text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-[1.25]">How Every Project Runs</h3>

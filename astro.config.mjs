@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://hearthstonehomestudio.ca',
+  site: 'https://hearthstone.mharoon.dev',
   integrations: [react(), sitemap()],
   build: { inlineStylesheets: 'always' },
   vite: {
